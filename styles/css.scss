@@ -1,0 +1,63 @@
+@import '../bower_components/normalize.css/normalize';
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+// $visual-grid:true;
+@import '../bower_components/neat/app/assets/stylesheets/neat';
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+  @include outer-container(280px);
+  @include vertical-align();
+  font-family: 'Open Sans', sans-serif;
+  font-size: 23px;
+}
+
+input {
+  @include span-columns(4);
+  display: block;
+  margin: 0;
+  width: 70px;
+  height: 70px;
+  border: 1px #76B56B solid;
+}
+.clear, .display, .nums, .equals {
+  background: #59A64C;
+  color: #F0F6EE;
+  border: 1px #76B56B solid;
+}
+.ops {
+  background: #76B56B;
+  border: 1px #9ECB97 solid;
+  color: #21301E;
+}
+div.display {
+  @include span-columns(1);
+  width: 210px;
+  height: 70px;
+  margin: 0;
+  padding: 0 20px;
+  span {
+    line-height: 70px;
+  }
+}
+
+input:focus {
+  outline: 0;
+}
+
+.answer {
+  text-align: center;
+}
