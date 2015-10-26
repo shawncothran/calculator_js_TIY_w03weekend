@@ -1,3 +1,11 @@
+var a;
+var b;
+var answer;
+var ops;
+var display;
+var value;
+var nums;
+
 // global variable declarations
 var display = document.getElementById('display');
 var a = parseInt(document.querySelectorAll('.nums')).value;
@@ -6,16 +14,16 @@ var nums = document.querySelectorAll('.nums');
 var ops = document.querySelectorAll('.ops');
 
 // for loops
-for(i = 0; i < nums.length; ++i){
+for (i = 0; i < nums.length; ++i) {
   nums[i].addEventListener('click', numsClick);
 }
 
-for(i = 0; i < ops.length; ++i){
+for (i = 0; i < ops.length; ++i) {
   ops[i].addEventListener('click', opsClick);
 }
 
 // functions
-function opsClick(event){
+function opsClick(event) {
   var value = event.target.value;
 
   if (['=', '/', '*', '-', '+'].indexOf(value) != -1) {
@@ -25,11 +33,12 @@ function opsClick(event){
       b = undefined;
       ops = undefined;
       return;
+      console.log(answer);
     }
   }
-};
+}
 
-function numsClick(event){
+function numsClick(event) {
   var value = event.target.value;
 
   if (a === undefined) {
@@ -51,9 +60,10 @@ function numsClick(event){
   } else if (a && ops && b) {
     display.innerText = a + ops + b;
   }
+  console.log(display.innerText);
 }
 
 // clear button
-document.getElementById("clear").addEventListener("click", function(){
-    document.getElementById('display').innerHTML = "";
+document.getElementById("clear").addEventListener("click", function() {
+  document.getElementById('display').innerHTML = "";
 });
